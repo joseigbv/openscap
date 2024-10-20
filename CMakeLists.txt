@@ -239,6 +239,7 @@ if (WIN32)
     set(IS_WIN32 TRUE)
 endif()
 cmake_dependent_option(ENABLE_PROBES_WINDOWS "build OVAL probes for the Windows OVAL tests" ${IS_WIN32} "ENABLE_PROBES" OFF)
+cmake_dependent_option(ENABLE_PROBES_SHELL "build OVAL probes for the SHELL family tests" ON "ENABLE_PROBES" OFF)
 
 # INDEPENDENT PROBES
 cmake_dependent_option(OPENSCAP_PROBE_INDEPENDENT_ENVIRONMENTVARIABLE "Independent environmentvariable probe" ON "ENABLE_PROBES_INDEPENDENT; NOT WIN32" OFF)
@@ -293,7 +294,10 @@ cmake_dependent_option(OPENSCAP_PROBE_SOLARIS_ISAINFO "Solaris isainfo probe" ON
 cmake_dependent_option(OPENSCAP_PROBE_WINDOWS_ACCESSTOKEN "Windows accesstoken probe" ON "ENABLE_PROBES_WINDOWS" OFF)
 cmake_dependent_option(OPENSCAP_PROBE_WINDOWS_REGISTRY "Windows registry probe" ON "ENABLE_PROBES_WINDOWS" OFF)
 cmake_dependent_option(OPENSCAP_PROBE_WINDOWS_WMI57 "Windows wmi57 probe" ON "ENABLE_PROBES_WINDOWS" OFF)
+cmake_dependent_option(OPENSCAP_PROBE_WINDOWS_FILE "Windows file probe" ON "ENABLE_PROBES_WINDOWS" OFF)
 
+# SHELL PROBES
+cmake_dependent_option(OPENSCAP_PROBE_SHELL_CMD "Shell cmd probe" ON "ENABLE_PROBES_SHELL" OFF)
 
 # ---------- EXECUTABLES / UTILITIES SWITCHES
 
@@ -423,6 +427,11 @@ message(STATUS "Windows probes: ${ENABLE_PROBES_WINDOWS}")
 message(STATUS "  Windows accesstoken probe: ${OPENSCAP_PROBE_WINDOWS_ACCESSTOKEN}")
 message(STATUS "  Windows registry probe: ${OPENSCAP_PROBE_WINDOWS_REGISTRY}")
 message(STATUS "  Windows wmi57 probe: ${OPENSCAP_PROBE_WINDOWS_WMI57}")
+message(STATUS "  Windows file probe: ${OPENSCAP_PROBE_WINDOWS_FILE}")
+message(STATUS " ")
+
+message(STATUS "Shell probes: ${ENABLE_PROBES_SHELL}")
+message(STATUS "  Shell cmd probe: ${OPENSCAP_PROBE_SHELL_CMD}")
 message(STATUS " ")
 
 

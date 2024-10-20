@@ -113,7 +113,11 @@ typedef enum {
 	 * Windows family
 	 * @see oval_windows_subtype_t
 	 */
-	OVAL_FAMILY_WINDOWS = 14000
+	OVAL_FAMILY_WINDOWS = 14000,
+	/**
+	* Pruebas TFM
+	*/
+	OVAL_FAMILY_SHELL = 22000
 } oval_family_t;
 
 /// Unknown subtypes
@@ -319,6 +323,11 @@ typedef enum {
 	// deprecated, use OVAL_WINDOWS_UAC instead
 	OVAL_WINDOWS_USER_ACCESS_CONTROL = OVAL_FAMILY_WINDOWS + 27,
 } oval_windows_subtype_t;
+
+/// Shell subtypes
+typedef enum {
+	OVAL_SHELL_CMD = OVAL_FAMILY_SHELL + 1,
+} oval_shell_subtype_t;
 
 /// severity level
 typedef enum {

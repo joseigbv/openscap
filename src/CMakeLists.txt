@@ -64,6 +64,11 @@ if (ENABLE_PROBES)
 			$<TARGET_OBJECTS:windows_probes_object>
 		)
 	endif()
+	if (ENABLE_PROBES_SHELL)
+		list(APPEND OBJECTS_TO_LINK_AGAINST
+			$<TARGET_OBJECTS:shell_probes_object>
+		)
+    endif()
 endif()
 if (HAVE_MMAN_H AND (GCRYPT_FOUND OR NSS_FOUND))
 	list(APPEND OBJECTS_TO_LINK_AGAINST
@@ -89,7 +94,7 @@ if(RPM_FOUND)
 	target_link_libraries(openscap ${RPM_LIBRARIES})
 endif()
 if(WIN32)
-	target_link_libraries(openscap wsock32 ws2_32 iphlpapi netapi32 wbemuuid)
+	target_link_libraries(openscap wsock32 ws2_32 iphlpapi netapi32 wbemuuid version imagehlp)
 endif()
 if (GCRYPT_FOUND)
 	target_link_libraries(openscap ${GCRYPT_LIBRARIES})

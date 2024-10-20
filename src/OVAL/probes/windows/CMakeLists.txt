@@ -16,6 +16,13 @@ if(OPENSCAP_PROBE_WINDOWS_WMI57)
 		"wmi57_probe.h"
 	)
 endif()
+if(OPENSCAP_PROBE_WINDOWS_FILE)
+	list(APPEND WINDOWS_PROBES_SOURCES
+		"file_probe.c"
+		"file_probe.h"
+	)
+endif()
+
 
 add_library(windows_probes_object OBJECT ${WINDOWS_PROBES_SOURCES})
 set_oscap_generic_properties(windows_probes_object)

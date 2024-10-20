@@ -335,7 +335,7 @@ static int file_cb(const char *prefix, const char *p, const char *f, void *ptr, 
 		 */
 		free(st_path_with_prefix);
 		return 0;
-        } else {
+    } else {
                 SEXP_t *se_usr_id, *se_grp_id;
                 SEXP_t  se_atime_mem, se_ctime_mem, se_mtime_mem, se_size_mem;
 		SEXP_t *se_filepath, *se_acl;

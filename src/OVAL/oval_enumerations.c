@@ -385,6 +385,7 @@ static const struct oscap_string_map OVAL_FAMILY_MAP[] = {
 	{OVAL_FAMILY_SOLARIS, "solaris"},
 	{OVAL_FAMILY_UNIX, "unix"},
 	{OVAL_FAMILY_WINDOWS, "windows"},
+	{OVAL_FAMILY_SHELL, "shell"},
 	{OVAL_ENUMERATION_INVALID, NULL}
 };
 
@@ -624,6 +625,11 @@ static const struct oscap_string_map OVAL_SUBTYPE_WINDOWS_MAP[] = {
 	{OVAL_SUBTYPE_UNKNOWN, NULL}
 };
 
+static const struct oscap_string_map OVAL_SUBTYPE_SHELL_MAP[] = {
+	{OVAL_SHELL_CMD, "cmd"},
+	{OVAL_SUBTYPE_UNKNOWN, NULL}
+};
+
 static const struct oscap_string_map *get_map_for_family(oval_family_t family)
 {
 	const struct oscap_string_map *map = NULL;
@@ -669,6 +675,9 @@ static const struct oscap_string_map *get_map_for_family(oval_family_t family)
 		break;
 	case OVAL_FAMILY_WINDOWS:
 		map = OVAL_SUBTYPE_WINDOWS_MAP;
+		break;
+	case OVAL_FAMILY_SHELL:
+		map = OVAL_SUBTYPE_SHELL_MAP;
 		break;
 	default:
 		map = NULL;
